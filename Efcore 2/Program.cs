@@ -1,10 +1,13 @@
-﻿namespace Efcore_2
+﻿using Microsoft.EntityFrameworkCore;
+namespace Efcore_2;
+
+internal class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World!");
-        }
+        using var context = new EventHubContext();
+        context.Database.Migrate();
+
+        Console.WriteLine("EventHub Database created successfully!");
     }
 }
